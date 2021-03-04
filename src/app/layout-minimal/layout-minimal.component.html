@@ -1,0 +1,47 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+    [disableClose]="hideTrigger ? true : false"
+    [mode]="hideTrigger ? 'side' : 'over'"
+  >
+    <ul>
+      <li>Home</li>
+      <li><a [routerLink]="['/invoices']">Invoices</a></li>
+      <li>Reports</li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-container
+      *ngIf="isMobileView$ | async; then mobile; else desktop"
+    ></ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<ng-template #desktop>
+  <mat-icon (click)="sidenav.toggle()" *ngIf="!hideTrigger">menu</mat-icon>
+
+  <main class="content-area">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</ng-template>
+
+<!-- Mobile Layout-->
+<ng-template #mobile>
+
+  <main class="content-area">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+</main>
+
+<footer></footer>
+
+</ng-template>

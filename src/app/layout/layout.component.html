@@ -1,0 +1,75 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+    [disableClose]="hideTrigger ? true : false"
+    [mode]="hideTrigger ? 'side' : 'over'"
+  >
+    <ul>
+      <li>Home</li>
+      <li><a [routerLink]="['/invoices']">Invoices</a></li>
+      <li>Reports</li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-container
+      *ngIf="isMobileView$ | async; then mobile; else desktop"
+    ></ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Desktop Layout-->
+<ng-template #desktop>
+  <main class="content-area">
+    <header>
+      <div class="container">
+        <div class="wrapper">
+      <h1 class="title">{{title}}</h1>
+      <div class="avatarBox">AO</div>
+      </div>
+      </div>
+    </header>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+
+</ng-template>
+
+<!-- Mobile Layout-->
+<ng-template #mobile>
+
+  <!-- header with ham and avatar box-->
+<header>
+  <div class="container">
+    <div class="wrapper">
+      <mat-icon (click)="sidenav.toggle()" *ngIf="!hideTrigger">menu</mat-icon>
+      <div class="avatarBox">AO</div>
+      </div>
+    </div>
+
+</header>
+
+
+  <main class="content-area">
+    <section class="template-header">
+      <div class="container">
+        <div class="wrapper">
+      <h3 class="title">{{title}}</h3>
+      <!-- Portal for more options-->
+      <div class="header-more-options"></div>
+      </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+</main>
+
+<footer></footer>
+
+</ng-template>

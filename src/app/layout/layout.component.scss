@@ -1,0 +1,32 @@
+// for mobile
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+// global
+::ng-deep {
+  .ctas {
+    .wrapper {
+      display: flex;
+    }
+  }
+  .wrapper {
+    padding: 1rem;
+  }
+  .page-header {
+      nav ul {
+          display: flex;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          li {
+              margin-right: 10px;
+          }
+      }
+
+  }
+}

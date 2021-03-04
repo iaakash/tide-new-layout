@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.hide {
+    display: none;
+}
+
+button.more-menu {
+  background: transparent;
+  border: none;
+}
+
+
+.headline_area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e3e3e3;
+  flex: 0 0 50px;
+  button {
+    background: #4050fb;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 25px;
+  }
+}
+
+
+// menu for desktop
+mat-sidenav {
+  width: 15.625rem;
+  background: #000861 !important;
+  padding: 2rem 1rem;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      color: white;
+      font-size: 24px;
+      padding: 1.5rem;
+      // margin-bottom: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+
+// For mobile - both layouts
+.content-area {
+  flex: 1 1 auto;
+  overflow: scroll;
+}
+mat-sidenav-content, .mat-drawer-content  {
+  max-height: 100vh;
+  min-height: 100vh;
+  display: flex !important;
+  flex-flow: column;
+}
+
+footer {
+  button.primary {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+button.primary {
+  background: #4345e4;
+  box-shadow: 0px 2px 1px rgb(0 0 0 / 8%);
+  border-radius: 256px;
+  color: white;
+  padding: 0.5rem;
+  width: 125px;
+  border: none;
+  &.hide {
+    display: none;
+  }
+}
+
+.avatarBox {
+  width: 50px;
+    height: 50px;
+    border: 1px solid #827d7d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}

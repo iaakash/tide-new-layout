@@ -1,0 +1,14 @@
+<section class="wrapper">
+    <div class="page-header">
+        <nav>
+            <ul>
+                <li><a [routerLink]="['/invoices/overview']">Overview</a></li>
+                <li><a [routerLink]="['/invoices/customer']">Customer</a></li>
+                <li><a [routerLink]="['/invoices/settings']">Settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</section>
